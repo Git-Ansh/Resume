@@ -1,0 +1,4 @@
+*.aux
+*.log
+*.out
+src/resume.pdf
