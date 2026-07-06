@@ -1,0 +1,50 @@
+name: Build resume
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - ".github/workflows/build-resume.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-resume
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Tectonic
+        uses: wtfjoke/setup-tectonic@v3
+
+      - name: Compile LaTeX
+        run: |
+          cd src
+          tectonic resume.tex
+
+      - name: Render preview image
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+          mv src/resume.pdf Ansh_Shah_Resume.pdf
+          pdftoppm -png -r 200 -singlefile Ansh_Shah_Resume.pdf preview
+
+      - name: Commit updated artifacts
+        run: |
+          git config user.name "Ansh Shah"
+          git config user.email "anshshah1624@gmail.com"
+          git add Ansh_Shah_Resume.pdf preview.png
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Rebuild resume artifacts"
+            git push
+          fi
