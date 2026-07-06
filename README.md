@@ -1,6 +1,6 @@
-[![Resume preview](preview.png)](Ansh_Shah_Resume.pdf)
+[![Resume preview](preview.png)](https://git-ansh.github.io/Resume/Ansh_Shah_Resume.pdf)
 
-*Click the preview to open the PDF.*
+*Click the preview to open the PDF with working links.*
 
 ﻿# Resume
 
