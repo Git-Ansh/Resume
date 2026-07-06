@@ -1,3 +1,7 @@
+[![Resume preview](preview.png)](Ansh_Shah_Resume.pdf)
+
+*Click the preview to open the PDF.*
+
 ﻿# Resume
 
 Ansh Shah's resume.
