@@ -2,7 +2,7 @@
 
 *Click the preview to open the PDF with working links.*
 
-﻿# Resume
+# Resume
 
 Ansh Shah's resume.
 
