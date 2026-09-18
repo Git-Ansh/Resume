@@ -67,6 +67,7 @@
 \newcommand*{\faGithub}{{\FAicons\symbol{"F09B}}}
 \newcommand*{\faLinkedin}{{\FAicons\symbol{"F0E1}}}
 \newcommand*{\faMobile}{{\FAicons\symbol{"F10B}}}
+\newcommand*{\faGraduationCap}{{\FAicons\symbol{"F19D}}} % used by \googlescholar; graduation-cap in FontAwesome 4.7
 % \RequirePackage{roboto} % replaced with file-based loading (no fontconfig needed)
 \setmainfont{Roboto}[
   Path=fonts/,
@@ -365,9 +366,9 @@
 \newcommand*{\googlescholar}[2]{%
   \def\@googlescholarid{#1}%
   \ifthenelse{\equal{#2}{}}{%
-    \def\@googlescholarname{\@firstname~\@lastname}%
+    \def\@googlescholarname{\underline{\textcolor{blue}{\@firstname~\@lastname}}}%
   }{%
-    \def\@googlescholarname{#2}%
+    \def\@googlescholarname{\underline{\textcolor{blue}{#2}}}%
   }%
 }
 
